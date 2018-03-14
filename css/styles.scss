@@ -5,6 +5,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+$baseColor: #727171;
+$fontColor: darken($baseColor, 10%);
+$violet: #B88AE5;
+$violet_l: lighten($violet, 10%);
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -13,6 +19,10 @@ html {
 
 body {
   margin: 0;
+// font-size: ;
+// font-family: ;
+//line-height: ;
+//
 }
 
 article,
@@ -51,6 +61,7 @@ template {
 
 a {
   background-color: transparent;
+  text-decoration: none;
 }
 
 a:active,
@@ -1945,7 +1956,7 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    width: 768px;
   }
 }
 @media (min-width: 992px) {
@@ -4505,7 +4516,7 @@ tbody.collapse.in {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 10px 30px;
 }
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
@@ -4833,7 +4844,7 @@ tbody.collapse.in {
 }
 .navbar-nav > li > a {
   padding-top: 10px;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
   line-height: 20px;
 }
 @media (max-width: 767px) {
@@ -4857,17 +4868,53 @@ tbody.collapse.in {
     background-image: none;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) { // header
+  .utlbar-nav {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .navbar-default .utlbar-nav > li {
+    float: left;
+    width: 70px;
+    a {
+      color: $violet;
+      padding: 0;
+      &:hover {
+        background-color: transparent;
+        color: $violet_l;
+      }
+    }
+  }
+
   .navbar-nav {
     float: left;
-    margin: 0;
+    margin: 35px 30px 0 0;
   }
   .navbar-nav > li {
     float: left;
+    position: relative;
+    &:after {
+      background-color: #d5d5d5;
+      content: "";
+      display: block;
+      height: 35px;
+      position: absolute;
+      right: 0;
+      top: 15px;
+      transform: skew(-20deg, -20deg);
+      -moz-transform: skew(-20deg, -20deg);
+      -ms-transform: skew(-20deg, -20deg);
+      -webkit-transform: skew(-20deg, -20deg);
+      width: 2px;
+    }
+    &:nth-of-type(5):after {
+      display: none;
+    }
   }
   .navbar-nav > li > a {
     padding-top: 15px;
-    padding-bottom: 15px;
   }
 }
 
@@ -7351,7 +7398,7 @@ header {
 }
 @media (min-width: 768px) {
   header {
-    padding: 30px 0 10px;
+    padding: 30px 0 0;
   }
 }
 header.navbar-default {
@@ -7379,15 +7426,15 @@ header.navbar-default .navbar-header {
   margin-top: 0;
   margin-bottom: 0;
 }
-@media (min-width: 768px) {
-  header.navbar-default .navbar-header {
-    margin-bottom: 15px;
-  }
-}
+// @media (min-width: 768px) {
+//   header.navbar-default .navbar-header {
+//     margin-bottom: 15px;
+//   }
+// }
 header.navbar-default .navbar-header .navbar-brand {
   height: auto;
   margin-top: -9px;
-  margin-right: 30px;
+  // margin-right: 30px;
 }
 @media (min-width: 768px) {
   header.navbar-default .navbar-header .navbar-brand {
@@ -7407,7 +7454,7 @@ header.navbar-default .navbar-collapse .navbar-nav {
   float: none;
 }
 @media (min-width: 768px) {
-  header.navbar-default .navbar-collapse .navbar-nav {
+  header.navbar-default .navbar-collapse {
     float: right;
     margin-right: -30px;
   }
@@ -7630,11 +7677,13 @@ footer .text-center a {
     padding-bottom: 15%;
   }
 }
-.intro-header .intro-message > h1 {
+.intro-header .intro-message > p {
   margin: 0;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   font-size: 5em;
+  font-weight: bold;
   font-family: 'Bree Serif', serif;
+  line-height: 1;
 }
 @media (max-width: 767px) {
   .intro-header .intro-message > h1 {
@@ -7669,17 +7718,30 @@ footer .text-center a {
  *   titleType1
  * ------------------------------------------------- */
 .titleType1 {
-  vertical-align: middle;
-  font-weight: normal;
-  padding-bottom: 15px;
-  border-bottom: 1px dotted #ccc;
-  margin: 0;
+  background: url("../images/bg_bottom.png") center bottom no-repeat;
+  // border-bottom: 1px dotted #ccc;
   font-size: 27px;
+  font-weight: normal;
+  margin: 0;
+  padding-bottom: 15px;
+  text-align: center;
+  vertical-align: middle;
 }
 .titleType1 .fa {
   font-size: 25px;
   margin-right: 7px;
   color: #DD7C3B;
+}
+
+.concept {
+  background: url("../images/concept.png") center center no-repeat;
+  background-size: 150px 150px;
+}
+
+.section-introduction {
+  font-family: 'Bree Serif', serif;
+  padding: 15px;
+  text-align: center;
 }
 
 /* ------------------------------------------------- *
