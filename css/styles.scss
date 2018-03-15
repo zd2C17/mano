@@ -10,6 +10,8 @@ $baseColor: #727171;
 $fontColor: darken($baseColor, 10%);
 $violet: #B88AE5;
 $violet_l: lighten($violet, 10%);
+$brown: #2F1F14;
+$brown_l: lighten($brown, 10%);
 
 html {
   font-family: sans-serif;
@@ -19,8 +21,9 @@ html {
 
 body {
   margin: 0;
+  color: #222;
 // font-size: ;
-// font-family: ;
+    font-family: YuGothic, "游ゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
 //line-height: ;
 //
 }
@@ -69,6 +72,13 @@ a:hover {
   outline: 0;
 }
 
+a:hover img{
+    opacity:0.5;
+    filter:alpha(opacity=80);
+    -ms-filter: "alpha( opacity=80 )";
+}
+
+
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -92,6 +102,12 @@ mark {
   color: #000;
 }
 
+p {
+   text-shadow: #fff 1px 1px 0, #fff -1px -1px 0,
+    #fff -1px 1px 0, #fff 1px -1px 0,
+    #fff 0px 1px 0, #fff 0 -1px 0,
+    #fff -1px 0 0, #fff 1px 0 0;
+}
 small {
   font-size: 80%;
 }
@@ -1404,10 +1420,10 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
+  // color: #333333;
   background-color: #fff;
 }
 
@@ -7620,6 +7636,16 @@ footer .text-center a {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
+.btn-beginner {
+    display: inline-block;
+    margin: 50px 0 0 100px;
+    &:hover, &:focus, &:active {
+        filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.8));
+    }
+}
+
+
+// .btn-beginner, .btn-beginner:hover, .btn-beginner:focus, .btn-beginner:active,
 .btn-primary,
 .btn-success,
 .btn-info,
@@ -7732,21 +7758,103 @@ footer .text-center a {
   margin-right: 7px;
   color: #DD7C3B;
 }
-
+.titleType2 {
+  background: url("../images/bg_bottom_dot.jpg") center bottom no-repeat;
+  font-weight: normal;
+  padding-bottom: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
 .concept {
-  background: url("../images/concept.png") center center no-repeat;
-  background-size: 150px 150px;
+  background: url("../images/concept.png") center bottom no-repeat;
+  background-size: 200px 200px;
+}
+.menu article {
+    display: block;
+    margin: 0 auto;
+    width: 450px;
+    img {
+        padding: 20px;
+        width: 100%;
+    }
+    p {
+        padding: 15px;
+    }
 }
 
 .section-introduction {
   font-family: 'Bree Serif', serif;
+  font-size: 13px;
   padding: 15px;
   text-align: center;
 }
 
+.section-introduction + p {
+  padding: 20px 0;
+}
+
+.beginner .section-introduction + p{
+  float: left;
+  padding: 20px 30px 60px;
+  position: relative;
+}
+
+#pageTop .concept {
+    text-align: center;
+}
+
+section {
+  padding: 100px 0 0;
+}
+
+.beginner, .menu {
+  overflow: hidden;
+}
+
+.beginner .section-introduction + p::before {
+    border-bottom: 250px solid rgba($brown_l, 0.2);
+    border-left: 700px solid transparent;
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
+    content: "";
+    height: 0;
+    position: absolute;
+    right: -356px;
+    top: 0;
+    width: 800px;
+    z-index: -1;
+}
+
+.center {
+  display: block;
+  text-align: center;
+}
+
+.btn-detail {
+  background-color: $brown;
+  border-radius: 20px;
+  border:solid 1px $brown;
+  color: #fff;
+  cursor:pointer;
+  display: inline-block;
+  font-size: 12px;
+  outline: none;
+  padding:5px;
+  width: 100px;
+  &:hover {
+    background-color: $brown_l;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+}
 /* ------------------------------------------------- *
  *   news
  * ------------------------------------------------- */
+.under {
+    border-bottom: 1px dotted #333;
+    padding: 0 30px 0;
+}
+
 .media-heading {
   font-size: 20px;
   border-bottom: 1px dotted #ccc;
