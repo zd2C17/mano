@@ -1488,7 +1488,7 @@ img {
 
 hr {
   margin-top: 20px;
-  margin-bottom: 20px;
+  // dell margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
@@ -1958,6 +1958,7 @@ pre code {
 }
 
 .container {
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -7637,8 +7638,8 @@ footer .text-center a {
 }
 
 .btn-beginner {
-    display: inline-block;
-    margin: 50px 0 0 100px;
+    display: block;
+    text-align: center;
     &:hover, &:focus, &:active {
         filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.8));
     }
@@ -7692,37 +7693,45 @@ footer .text-center a {
   color: #f8f8f8;
   background-size: cover;
   background: url("../images/kv_img01.jpg") center 0 no-repeat;
+  height: 700px;
 }
 .intro-header .intro-message {
+  height: 100%;
   position: relative;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  margin-top: 20%;
+  margin-bottom: 20%;
 }
 @media (max-width: 767px) {
   .intro-header .intro-message {
     padding-bottom: 15%;
   }
 }
-.intro-header .intro-message > p {
+.intro-header .intro-message p:nth-of-type(1) {
   margin: 0;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   font-size: 5em;
   font-weight: bold;
   font-family: 'Bree Serif', serif;
   line-height: 1;
+  margin: 20px 0;
 }
 @media (max-width: 767px) {
   .intro-header .intro-message > h1 {
     font-size: 3em;
   }
 }
-.intro-header .intro-message > h3 {
+.intro-header .intro-message span {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .intro-header .intro-message .intro-divider {
-  width: 400px;
   border-top: 1px solid #f8f8f8;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 400px;
 }
 @media (max-width: 767px) {
   .intro-header .intro-message .intro-divider {
@@ -7769,34 +7778,21 @@ footer .text-center a {
   background: url("../images/concept.png") center bottom no-repeat;
   background-size: 200px 200px;
 }
+
 .menu article {
+  img {
     display: block;
+  }
+  img, p {
     margin: 0 auto;
-    width: 450px;
-    img {
-        padding: 20px;
-        width: 100%;
-    }
-    p {
-        padding: 15px;
-    }
+    width: 80%;
+  }
 }
 
 .section-introduction {
   font-family: 'Bree Serif', serif;
   font-size: 13px;
-  padding: 15px;
   text-align: center;
-}
-
-.section-introduction + p {
-  padding: 20px 0;
-}
-
-.beginner .section-introduction + p{
-  float: left;
-  padding: 20px 30px 60px;
-  position: relative;
 }
 
 #pageTop .concept {
@@ -7807,18 +7803,15 @@ section {
   padding: 100px 0 0;
 }
 
-.beginner, .menu {
-  overflow: hidden;
-}
-
-.beginner .section-introduction + p::before {
+.bg01:before {
     border-bottom: 250px solid rgba($brown_l, 0.2);
     border-left: 700px solid transparent;
     box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
     content: "";
-    height: 0;
+    // height: 0;
     position: absolute;
-    right: -356px;
+    right: -370px;
+    // right: -554px;
     top: 0;
     width: 800px;
     z-index: -1;
@@ -7847,12 +7840,32 @@ section {
     transition: background-color 0.3s;
   }
 }
+.btn-contact {
+  background-color: $brown;
+  border-radius: 20px;
+  border:solid 1px $brown;
+  color: #fff;
+  cursor:pointer;
+  display: inline-block;
+  font-size: 20px;
+  outline: none;
+  padding:5px;
+  width: 300px;
+  &:hover {
+    background-color: $brown_l;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+}
 /* ------------------------------------------------- *
  *   news
  * ------------------------------------------------- */
 .under {
     border-bottom: 1px dotted #333;
+    margin: 0 auto;
     padding: 0 30px 0;
+    width: 90%;
 }
 
 .media-heading {
@@ -7870,6 +7883,10 @@ section {
 /* ------------------------------------------------- *
  *   contact
  * ------------------------------------------------- */
+#pageTop .info span{
+  font-size: 20px;
+}
+
 .form-group label span {
   font-size: 12px;
   color: red;
