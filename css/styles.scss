@@ -1642,6 +1642,18 @@ mark,
   text-align: center;
 }
 
+.hidden-text-center {
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  .hidden-text-center {
+    text-align: center;
+  }
+}
+
+
+
 .text-justify {
   text-align: justify;
 }
@@ -2002,6 +2014,7 @@ pre code {
 }
 
 .row {
+  height: 100%;
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -2014,6 +2027,7 @@ pre code {
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  height: inherit;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -7314,7 +7328,7 @@ button.close {
     display: none !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   .hidden-sm {
     display: none !important;
   }
@@ -7331,6 +7345,11 @@ button.close {
 }
 .visible-print {
   display: none !important;
+}
+@media (min-width: 768px) {
+  .appearent-xs {
+    display: none !important;
+  }
 }
 
 @media print {
@@ -7455,13 +7474,13 @@ header.navbar-default .navbar-header .navbar-brand {
 }
 @media (min-width: 768px) {
   header.navbar-default .navbar-header .navbar-brand {
-    padding-top: 24px;
-    margin-top: 0;
+    // padding-top: 24px;
+    // margin-top: 0;
   }
 }
 @media (min-width: 992px) {
   header.navbar-default .navbar-header .navbar-brand {
-    margin-top: -17px;
+    // margin-top: -17px;
   }
 }
 header.navbar-default .navbar-collapse {
@@ -7517,7 +7536,7 @@ header.navbar-default .navbar-collapse .navbar-form .btn {
  *        footer
  * ------------------------------------------------- */
 footer {
-  background-color: #000;
+  background-color: $brown;
   color: #fff;
   padding: 30px 0;
 }
@@ -7689,27 +7708,45 @@ footer .text-center a {
  *        landing page header
  * ------------------------------------------------- */
 .intro-header {
-  text-align: center;
   color: #f8f8f8;
   background-size: cover;
   background: url("../images/kv_img01.jpg") center 0 no-repeat;
+}
+#pageTop .intro-header {
   height: 700px;
 }
-.intro-header .intro-message {
-  height: 100%;
-  position: relative;
-  margin-top: 20%;
-  margin-bottom: 20%;
+#beginner .intro-header {
+  height: 300px;
 }
-@media (max-width: 767px) {
-  .intro-header .intro-message {
-    padding-bottom: 15%;
+.intro-message {
+  box-sizing: border-box;
+  height: inherit;
+  position: relative;
+  &-inner {
+  width: 80%;
+  height: 200px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   }
 }
-.intro-header .intro-message p:nth-of-type(1) {
+#pageTop .main-message > p {
   margin: 0;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   font-size: 5em;
+  font-weight: bold;
+  font-family: 'Bree Serif', serif;
+  line-height: 1;
+  margin: 20px 0;
+}
+#beginner .main-message > p {
+  margin: 0;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-size: 3em;
   font-weight: bold;
   font-family: 'Bree Serif', serif;
   line-height: 1;
@@ -7735,6 +7772,7 @@ footer .text-center a {
 }
 @media (max-width: 767px) {
   .intro-header .intro-message .intro-divider {
+    max-width: 400px;
     width: 100%;
   }
 }
@@ -7775,7 +7813,7 @@ footer .text-center a {
   vertical-align: middle;
 }
 .concept {
-  background: url("../images/concept.png") center bottom no-repeat;
+  background: url("../images/concept.png") center 150px no-repeat;
   background-size: 200px 200px;
 }
 
@@ -7788,6 +7826,11 @@ footer .text-center a {
     width: 80%;
   }
 }
+@media screen and (max-width: 991px) {
+  .menu article:nth-of-type(2) {
+    margin-top: 15px;
+  }
+}
 
 .section-introduction {
   font-family: 'Bree Serif', serif;
@@ -7795,28 +7838,45 @@ footer .text-center a {
   text-align: center;
 }
 
-#pageTop .concept {
-    text-align: center;
-}
-
 section {
   padding: 100px 0 0;
 }
 
+.beginner {
+  background-color: none;
+}
+@media screen and (max-width: 767px) {
+  .beginner {
+    background-color: rgba($brown_l, 0.1);
+  }
+}
 .bg01:before {
-    border-bottom: 250px solid rgba($brown_l, 0.2);
-    border-left: 700px solid transparent;
+    border-bottom: 250px solid rgba($brown_l, 0.1);
+    border-left: 600px solid transparent;
     box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
     content: "";
-    // height: 0;
     position: absolute;
     right: -370px;
-    // right: -554px;
     top: 0;
-    width: 800px;
+    width: 700px;
     z-index: -1;
 }
-
+@media screen and (max-width: 1199px) {
+  .bg01:before {
+    right: -305px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .bg01:before {
+    right: 15px;
+    // width: 800px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .bg01:before {
+    display: none;
+  }
+}
 .center {
   display: block;
   text-align: center;
@@ -7849,8 +7909,9 @@ section {
   display: inline-block;
   font-size: 20px;
   outline: none;
-  padding:5px;
+  padding:5px 20px;
   width: 300px;
+  // margin: 5px;
   &:hover {
     background-color: $brown_l;
     color: #fff;
@@ -7883,8 +7944,27 @@ section {
 /* ------------------------------------------------- *
  *   contact
  * ------------------------------------------------- */
-#pageTop .info span{
-  font-size: 20px;
+#pageTop .info {
+  .tel{
+    font-size: 24px;
+  }
+    .mail{
+    font-size: 15px;
+  }
+    .span {
+      color: #777;
+    }
+    .span:hover {
+      color: #333;
+      text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 991px) {
+  #pageTop .info-address {
+    width: 400px;
+    margin: 30px auto 0;
+  }
 }
 
 .form-group label span {
