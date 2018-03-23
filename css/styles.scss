@@ -10,6 +10,7 @@ $baseColor: #727171;
 $fontColor: darken($baseColor, 10%);
 $violet: #B88AE5;
 $violet_l: lighten($violet, 10%);
+$violet_ml: lighten($violet_l, 10%);
 $brown: #2F1F14;
 $brown_l: lighten($brown, 10%);
 
@@ -4920,9 +4921,15 @@ tbody.collapse.in {
     a {
       color: $violet;
       padding: 0;
+      &:focus {
+        background-color: transparent;
+        color: $violet_l;
+        text-decoration: none;
+      }
       &:hover {
         background-color: transparent;
         color: $violet_l;
+        text-decoration: none;
       }
     }
     span {
@@ -4963,7 +4970,6 @@ tbody.collapse.in {
       }
     }
   }
-
   .navbar-nav {
     float: left;
     margin: 35px 30px 0 0;
@@ -7928,14 +7934,14 @@ footer .text-center a {
     margin-bottom: 0;
   }
 }
-.menu article, .trial, .privilege, .staff, .yoga {
+.menu article, .trial, .privilege, .staff, .yoga, .aesthe {
   img {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
 }
-#pageTop .menu article, .trial, .privilege, .staff, .yoga {
+#pageTop .menu article, .trial, .privilege, .staff, .yoga, .aesthe {
   p {
     margin-left: auto;
     margin-right: auto;
@@ -7950,7 +7956,7 @@ footer .text-center a {
 #beginner .menu h3 {
   font-size: 14px;
 }
-.trial, .privilege, .yoga {
+.trial, .privilege, .yoga, .aesthe {
   img{
     max-width: 400px;
     // width: 80%;
@@ -7975,6 +7981,32 @@ footer .text-center a {
   padding: 15px 30px;
   max-width: 400px;
 }
+.tbl-plane {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  max-width: 300px;
+}
+#yoga .tbl-plane, #aesthe .tbl-plane {
+  border-collapse: separate;
+  min-height: 240px;
+  tr {
+    height: 30px;
+    vertical-align: top;
+  }
+  .row-wide {
+    height: 50px;
+  }
+  .span {
+    color: $violet;
+    font-size: 12px;
+  }
+}
+#aesthe ,tbl-plane {
+  td {
+    min-width: 100px;
+  }
+}
 .trial .tbl-dotted th {
   width: 100px;
 }
@@ -7983,6 +8015,14 @@ footer .text-center a {
 }
 #mama span {
   font-size: 10px;
+}
+#mama p {
+  max-width: 360px;
+}
+.box-dotted {
+    border: 1px dotted $baseColor;
+    box-sizing: border-box;
+    margin: 0 7.5px;
 }
 @media screen and (max-width: 991px) {
  #pageTop .menu article:nth-of-type(2) {
@@ -7998,10 +8038,16 @@ footer .text-center a {
 section {
   padding: 90px 0 0;
 }
+#schedule, #price {
+  padding: 60px 0 0;
+}
 @media screen and (max-width: 480px) {
   section {
     padding-top: 60px;
   }
+    #schedule {
+      padding: 30px 0 0;
+    }
 }
 .container-fluid {
   background-color: none;
@@ -8111,15 +8157,19 @@ section {
     transition: background-color 0.3s;
   }
 }
-.yoga .wrap-btn {
-  overflow: hidden;
-  margin: 0 auto;
-  max-width: 300px;
+.yoga, .aesthe {
+  .wrap-btn {
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 300px;
+  }
 }
-.yoga .centering {
-  float: left;
-  text-align: center;
-  width: 150px;
+.yoga, .aesthe {
+  .centering {
+    float: left;
+    text-align: center;
+    width: 150px;
+  }
 }
 /* ------------------------------------------------- *
  *   news
@@ -8146,7 +8196,7 @@ section {
 /* ------------------------------------------------- *
  *   contact
  * ------------------------------------------------- */
-#pageTop .info {
+#pageTop .info, #beginner, #yoga, #aesthe {
   .tel{
     font-size: 24px;
   }
@@ -8161,7 +8211,6 @@ section {
       text-decoration: none;
     }
 }
-
 @media screen and (max-width: 991px) {
   #pageTop .info-address {
     max-width: 280px;
@@ -8190,6 +8239,28 @@ section {
   margin-right: auto;
   max-width: 360px;
  }
+  .propagand {
+    border: 5px solid $violet_l;
+    box-sizing: border-box;
+    font-size: 12px;
+    margin: 0 auto 30px;
+    max-width: 400px;
+    padding: 15px;
+    .escape {
+      color: $violet_l;
+      font-family: Arial;
+      font-weight: bold;
+      .violet {
+      color: $violet;
+      }
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .propagand .escape {
+      display: block;
+      text-align: center;
+    }
+  }
  .detail-img {
   float: right;
   height: 400px;
@@ -8240,21 +8311,7 @@ section {
     padding-bottom: 30px;
   }
 }
-#beginner {
-  .tel{
-    font-size: 24px;
-  }
-  .mail{
-    font-size: 15px;
-  }
-    .span {
-      color: #777;
-    }
-    .span:hover {
-      color: #333;
-      text-decoration: none;
-    }
-}
+
 /* ------------------------------------------------- *
  *   detail
  * ------------------------------------------------- */
